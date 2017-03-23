@@ -4,6 +4,7 @@ public class HotelProgram {
 
 	public static void main(String[] args) {
 		System.out.print("Password (q to quit): ");
+		CustomerList newList = new CustomerList();
 		boolean done = false;
 		boolean done2 = false;
 		while (!done) {
@@ -19,6 +20,11 @@ public class HotelProgram {
 				while (!done2) {
 					String action = in.next().toUpperCase();
 					if (action.equals("R")) {
+						System.out.print("Customer first name: ");
+						String fName = in.next();
+						System.out.print("Customer last name: ");
+						String lName = in.next();
+						newList.add(fName, lName);
 						done2 = true;
 					}
 					else if (action.equals("A")) {
@@ -87,8 +93,6 @@ public class HotelProgram {
 			}
 			
 		}
-		
-		
 		
 	}
 
