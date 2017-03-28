@@ -1,3 +1,8 @@
+/*
+ * @ author Derek Smith
+ * Creation date: 3/21/17
+ */
+
 import java.util.Scanner;
 
 public class HotelProgram {
@@ -25,16 +30,19 @@ public class HotelProgram {
 						System.out.print("Customer last name: ");
 						String lName = in.next();
 						newList.add(fName, lName);
-						done2 = true;
+						System.out.printf("R) To make reservation A) To check room availibility C) To add charges B) To print bill Q) To quit\r\n");
 					}
 					else if (action.equals("A")) {
-						done2 = true;
+						
+						System.out.printf("R) To make reservation A) To check room availibility C) To add charges B) To print bill Q) To quit\r\n");
 					}
 					else if (action.equals("C")) {
-						done2 = true;
+						
+						System.out.printf("R) To make reservation A) To check room availibility C) To add charges B) To print bill Q) To quit\r\n");
 					}
 					else if (action.equals("B")) {
-						done2 = true;
+						
+						System.out.printf("R) To make reservation A) To check room availibility C) To add charges B) To print bill Q) To quit\r\n");
 					}
 					else if (action.equals("Q")) {
 						done2 = true;
@@ -43,6 +51,7 @@ public class HotelProgram {
 						System.out.println("Incorrect input.");
 						System.out.printf("R) To make reservation A) To check room availibility C) To add charges B) To print bill Q) To quit\r\n");
 					}
+					
 				}
 				
 				done = true;
@@ -56,21 +65,27 @@ public class HotelProgram {
 				while (!done2) {
 					String action = in.next().toUpperCase();
 					if (action.equals("R")) {
-						done2 = true;
+						
+						System.out.printf("R) To make reservation A) To check room availibility C) To add charges M) To remove charges B) To print bill D) To print daily report Q) To quit\r\n");
 					} else if (action.equals("A")) {
-						done2 = true;
+						
+						System.out.printf("R) To make reservation A) To check room availibility C) To add charges M) To remove charges B) To print bill D) To print daily report Q) To quit\r\n");
 					}
 					else if (action.equals("C")) {
-						done2 = true;
+						
+						System.out.printf("R) To make reservation A) To check room availibility C) To add charges M) To remove charges B) To print bill D) To print daily report Q) To quit\r\n");
 					}
 					else if (action.equals("M")) {
-						done2 = true;
+						
+						System.out.printf("R) To make reservation A) To check room availibility C) To add charges M) To remove charges B) To print bill D) To print daily report Q) To quit\r\n");
 					}
 					else if (action.equals("B")) {
-						done2 = true;
+						
+						System.out.printf("R) To make reservation A) To check room availibility C) To add charges M) To remove charges B) To print bill D) To print daily report Q) To quit\r\n");
 					}
 					else if (action.equals("D")) {
-						done2 = true;
+						
+						System.out.printf("R) To make reservation A) To check room availibility C) To add charges M) To remove charges B) To print bill D) To print daily report Q) To quit\r\n");
 					}
 					else if (action.equals("Q")) {
 						done2 = true;
