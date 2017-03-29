@@ -11,9 +11,10 @@ public class HotelProgram {
 	public static void main(String[] args) {
 		System.out.print("Password (q to quit): ");
 		CustomerList newList = new CustomerList();
-		boolean done = false;
-		boolean done2 = false;
-		boolean done3 = false;
+		
+		boolean done = false; // done will end the whole program
+		boolean done2 = false; // done2 will end Employee UI or Manager UI
+		boolean done3 = false; // done3 will end options within the Employee/Manager UI's
 		while (!done) {
 			Scanner in = new Scanner(System.in);
 			String password = in.nextLine();
@@ -104,40 +105,79 @@ public class HotelProgram {
 				System.out.println("Welcome Manager.");
 				
 				// Manager UI
-				System.out.printf("R) To make reservation A) To check room availibility C) To add charges M) To remove charges B) To print bill D) To print daily report Q) To quit\r\n");
 				while (!done2) {
+					System.out.printf("R) Reservation C) Check In/Out A) Room Availability B) Bill Q) To quit\r\n");
 					String action = in.next().toUpperCase();
+					
+					// Reservation UI
 					if (action.equals("R")) {
-						
-						System.out.printf("R) To make reservation A) To check room availibility C) To add charges M) To remove charges B) To print bill D) To print daily report Q) To quit\r\n");
-					} else if (action.equals("A")) {
-						
-						System.out.printf("R) To make reservation A) To check room availibility C) To add charges M) To remove charges B) To print bill D) To print daily report Q) To quit\r\n");
+						while (!done3) {
+							System.out.printf("N) New reservaiton C) Change reservation Q) Quit\r\n");
+							String action2 = in.next().toUpperCase();
+							
+							// Creating a new reservation option
+							if (action2.equals("N")) {
+								System.out.print("Customer first name: ");
+								String fName = in.next();
+								System.out.print("Customer last name: ");
+								String lName = in.next();
+								newList.add(fName, lName);
+							}
+							
+							// Changing a reservation option
+							else if (action2.equals("C")) {
+							
+							}
+							
+							
+							// Quit reservation option
+							else if (action2.equals("Q")) {
+								done3 = true;
+							}
+							
+							// Incorrect input
+							else {
+								System.out.println("Sorry, that was incorrect input.");
+							}
+						}
 					}
+						
+					// Checking In/Out UI
 					else if (action.equals("C")) {
+						while (!done3) {
+							
+						}
 						
-						System.out.printf("R) To make reservation A) To check room availibility C) To add charges M) To remove charges B) To print bill D) To print daily report Q) To quit\r\n");
 					}
-					else if (action.equals("M")) {
+					
+					// Room Availability UI
+					else if (action.equals("A")) {
+						while (!done3) {
+							
+						}
 						
-						System.out.printf("R) To make reservation A) To check room availibility C) To add charges M) To remove charges B) To print bill D) To print daily report Q) To quit\r\n");
 					}
+						
+					// Billing UI
 					else if (action.equals("B")) {
+						while (!done3) {
+							
+						}
 						
-						System.out.printf("R) To make reservation A) To check room availibility C) To add charges M) To remove charges B) To print bill D) To print daily report Q) To quit\r\n");
 					}
-					else if (action.equals("D")) {
 						
-						System.out.printf("R) To make reservation A) To check room availibility C) To add charges M) To remove charges B) To print bill D) To print daily report Q) To quit\r\n");
-					}
+					// Quit option
 					else if (action.equals("Q")) {
 						done2 = true;
 					}
+						
+					// Incorrect input
 					else {
 						System.out.println("Incorrect input.");
 						System.out.printf("R) To make reservation A) To check room availibility C) To add charges B) To print bill Q) To quit\r\n");
 					}
 				}
+				
 				done = true;
 			}
 			// Option to quit out of password screen
