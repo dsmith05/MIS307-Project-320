@@ -31,7 +31,7 @@ public class HotelProgram {
 					// Reservation UI
 					if (action.equals("R")) {
 						while (!done3) {
-							System.out.printf("N) New reservaiton C) Change reservation Q) Quit\r\n");
+							System.out.printf("N) New reservaiton C) Cancel reservation Q) Quit\r\n");
 							String action2 = in.next().toUpperCase();
 							
 							// Creating a new reservation option
@@ -43,7 +43,7 @@ public class HotelProgram {
 								newList.add(fName, lName);
 							}
 							
-							// Changing a reservation option
+							// Canceling a reservation option
 							else if (action2.equals("C")) {
 							
 							}
@@ -128,7 +128,6 @@ public class HotelProgram {
 							else if (action2.equals("C")) {
 							
 							}
-							
 							
 							// Quit reservation option
 							else if (action2.equals("Q")) {
