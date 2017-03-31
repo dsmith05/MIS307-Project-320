@@ -45,7 +45,8 @@ public class HotelProgram {
 							
 							// Canceling a reservation option
 							else if (action2.equals("C")) {
-							
+								
+								
 							}
 							
 							
