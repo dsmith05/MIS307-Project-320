@@ -2,6 +2,7 @@
  * 
  * @author DerekSmith
  *Creation date: 3/29/17
+ *
  */
 public class Reservations {
 	
@@ -11,8 +12,7 @@ public class Reservations {
 	 * @param roomNum room number to be reserved
 	 * @param nights number of nights to be reserved
 	 */
-	public void newRes(String lName, int roomNum, int nights) {
-		
+	public void newRes(int ID, int roomNum, int nights) {
 		
 		
 	}

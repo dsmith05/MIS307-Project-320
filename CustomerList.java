@@ -4,16 +4,18 @@ import java.util.ArrayList;
  * 
  * @author DerekSmith
  *Creation date: 3/23/17
+ *
  */
 
 public class CustomerList {
 	
 	private ArrayList<Customer> mainList;
-	private int counter = 0;
+	private int counter;
 	
 	public CustomerList() {
 		
 		mainList = new ArrayList<Customer>();
+		counter = 0;
 		
 	}
 	/**
@@ -29,18 +31,44 @@ public class CustomerList {
 	}
 	
 	/**
+	 * Gets the desired Customer object
+	 * @param index the desired Customer object's index in the ArrayList
+	 * @return the Customer object at location index in ArrayList
+	 */
+	public Customer getCustomer(int index) {
+		return mainList.get(index);
+		
+	}
+	
+	/**
 	 * Finds a customer's index number by last name
 	 * @param last customer's last name
 	 * @return if >= 0 index location in mainList, if < 0 customer not found
 	 */
-	public int findByName(String last) {
+	public int findByLast(String last) {
 		int match = -1;
-		for (int i = 0; i < counter && match == 0; i++) {
+		for (int i = 0; i < counter && match == -1; i++) {
 			if (last.equals(mainList.get(i).getLast())) {
 				match = i;
 			}
 		}
 		return match;
+	}
+	
+	/**
+	 * Finds a customer's index number by first name
+	 * @param first customer's first name
+	 * @return if >= 0 index location in mainList, if < 0 customer not found
+	 */
+	public int findByFirst(String first) {
+		int match = -1;
+		for (int i = 0; i < counter && match == -1; i++) {
+			if (first.equals(mainList.get(i).getFirst())) {
+				match = i;
+			}
+		}
+		return match;
+		
 	}
 	
 	/**
@@ -64,9 +92,14 @@ public class CustomerList {
 	 * @param lName Last name of customer
 	 * @return if true, customer already exists/ if false, customer does not exist
 	 */
-	public boolean existingCust(String fName, String lName) {
-		return false;
-		
+	public boolean existingCustomer(String fName, String lName) {
+		int first = findByFirst(fName);
+		int last = findByLast(lName);
+		if (first == last) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 }

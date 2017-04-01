@@ -2,15 +2,20 @@
  * 
  * @author DerekSmith
  *Creation date: 3/23/17
+ *
  */
 public class Customer {
 	
+	private static int counter = 0;
+	private int ID;
 	private String firstName;
 	private String lastName;
 	private int roomNum;
 	
 	public Customer(String first, String last) {
 		
+		counter++;
+		ID = counter;
 		firstName = first;
 		lastName = last;
 		roomNum = 0;
@@ -23,7 +28,6 @@ public class Customer {
 	 * @param room the desired room number change
 	 */
 	public void setRoomNum(int room) {
-		
 		roomNum = room;
 		
 	}
@@ -50,6 +54,14 @@ public class Customer {
 	 */
 	public int getRoomNum() {
 		return roomNum;
+	}
+	
+	/**
+	 * Gets the ID number of a customer
+	 * @return Customer's ID number
+	 */
+	public int getID() {
+		return ID;
 	}
 
 }
