@@ -176,16 +176,13 @@ public class HotelProgram {
 							
 							// Creating a new reservation option
 							if (action2.equals("N")) {
-								System.out.print("Customer first name: ");
-								String fName = in.next();
-								System.out.print("Customer last name: ");
-								String lName = in.next();
-								newList.add(fName, lName);
+								System.out.print("Customer ID: ");
+								// use newRes method from Reservations class
 							}
 							
 							// Changing a reservation option
 							else if (action2.equals("C")) {
-							
+								System.out.print("Customer ID: ");
 							}
 							
 							// Quit reservation option
@@ -226,6 +223,18 @@ public class HotelProgram {
 								System.out.println("Sorry, that was incorrect input.");
 							}
 						}
+						
+					}
+					
+					// New Customer UI
+					else if (action.equals("N")) {
+						System.out.print("Customer first name: ");
+						String fName = in.next();
+						System.out.print("Customer last name: ");
+						String lName = in.next();
+						newList.add(fName, lName);
+						int index = newList.findByLast(lName);
+						System.out.println(fName + " " + lName + " Customer ID is " + newList.getCustomer(index).getID());
 						
 					}
 					
