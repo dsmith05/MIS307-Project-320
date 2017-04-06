@@ -3,7 +3,7 @@ import java.util.Scanner;
 /**
  * 
  * @author DerekSmith
- *Creation date: 3/21/17
+ * Creation date: 3/21/17
  *
  */
 
