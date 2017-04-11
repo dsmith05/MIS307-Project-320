@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author User
+ * @abbyFridgen User
  */
 
 public class RoomsList

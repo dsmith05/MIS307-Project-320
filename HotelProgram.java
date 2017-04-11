@@ -106,10 +106,60 @@ public class HotelProgram {
 					// Room Availability UI
 					else if (action.equals("A")) {
 						while (!done3) {
-							
-						}
 						
+								   boolean doneRoom = false;
+								   boolean doneRoom2 = false;
+								   boolean doneRoom3 = false;
+								   while(!doneRoom) 
+								   {
+								   Rooms first = new Rooms();
+								   System.out.print("Do you need the room availability? Y/N ");
+								   String response3 = in.next();
+								   if(response3.equals("Y")) {
+									   first.getRooms();
+								   }
+								  
+								  
+								   System.out.println("Do you need to add rooms? Y/N");
+								   
+								       
+								      // System.out.println("Don you need to add rooms? Y/N");
+								       String response2 = in.next();
+								       if(response2.equals("Y")) {
+								       System.out.println("Single Rooms?: ");
+								       first.addSingle(in.nextInt());
+								       System.out.println("Double Rooms?: ");
+								       first.addDouble(in.nextInt());
+								       System.out.println("Triple Rooms?: ");
+								       first.addTriple(in.nextInt());
+								       first.getRooms();
+								       }
+								       
+								           System.out.println("Do you need to Remove Rooms? Y/N?");
+								           
+								           String response5 = in.next();
+								           if(response5.equals("Y"))
+								           {
+								               System.out.println("Single Rooms?: ");
+								               first.removeSingle(in.nextInt());
+								               System.out.println("Double Rooms?: ");
+								               first.removeDouble(in.nextInt());
+								               System.out.println("Triple Room?");
+								               first.removeTriple(in.nextInt());
+								               first.getRooms();
+								           }
+								  //first.getRooms();
+								  doneRoom = true;
+								  doneRoom3 = true;
+								 done3 = true;
+								   }
+						}
 					}
+								   
+								  
+								
+							
+					
 						
 					// Billing UI
 					else if (action.equals("B")) {
@@ -241,11 +291,9 @@ public class HotelProgram {
 					// Room Availability UI
 					else if (action.equals("A")) {
 						while (!done3) {
-							
 						}
-						
 					}
-						
+		
 					// Billing UI
 					else if (action.equals("B")) {
 						while (!done3) {

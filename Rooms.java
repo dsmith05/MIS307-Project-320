@@ -31,24 +31,20 @@ public class Rooms {
                
 		Rooms x = new Rooms();
                 type.add(x);
-                double price = 100;
-		total += single;
+                total += single;
                             
 	}
         
 	public void addDouble(int double1) {
 		Rooms x2 = new Rooms();
 		type.add(x2);
-		//counterx2++;
-                
-                totalx2 += double1;
+        totalx2 += double1;
                 
 	}
 	public void addTriple(int triple) {
 		Rooms x3 = new Rooms();
 		type.add(x3);
-		//counterx3++;
-                totalx3 += triple;
+        totalx3 += triple;
               
                
 	}
@@ -56,20 +52,17 @@ public class Rooms {
             {
                 Rooms x = new Rooms();
 		type.remove(x);
-		//counter--;
-                total -= single;
+        total -= single;
 	}
 	public void removeDouble(int double1) {
                 Rooms x2 = new Rooms();
 		type.remove(x2);
-		//counterx2--;
                 totalx2 -= double1;
 	}
 	public void removeTriple(int triple){
                 Rooms x3 = new Rooms();
 		type.remove(x3);
-		//counterx3--;
-                totalx3 -= triple;
+        totalx3 -= triple;
 	}
 	public void getRooms() {
              System.out.println("Single " + total);
@@ -85,5 +78,16 @@ public class Rooms {
         }
         public void getTotalTriple() {
             System.out.println(totalx3);
+        }
+        public void getPriceSingle() {
+        	int single;
+        	
+        }
+        public void getPriceDouble() {
+        	int double1;
+        	
+        }
+        public void getPriceTriple(){
+        	int triple;
         }
 	}
