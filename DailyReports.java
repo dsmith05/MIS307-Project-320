@@ -13,7 +13,7 @@ public class DailyReports{
  *adds the cost of each unavailable room.
  *prints the total
  */
-public getDailyRevenue() {
+public Double getDailyRevenue() {
 
 
 while(in.hasNext()){
@@ -25,7 +25,7 @@ return;
 /**calculates the occupancy rate for the day
  *takes the number of unavailable room and divides it by the total number of rooms.
 */ 
-public OccupancyRate(){
+public Double OccupancyRate(){
 
 return;
 }
