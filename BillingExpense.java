@@ -4,23 +4,32 @@
 
 public class BillingExpense {
 	
-	private String Bill;
+	private double chargeTotal;
+	private double grandTotal;
+	
 	
 	public BillingExpense() 
 	{
 		
 	}
-	public void addExpense(double expense)
-	{
-		
-	}
 	public double getRoomPrice()
 	{
-		Rooms.getroomnumber.getprice();
+		return 0;
 	}
-	public String printBill()
+	public double getIncidentalcharges()
 	{
-		return Bill;
+		return 0;
 	}
+	public double getIncidentalChargeTotal()
+	{
+		return 0;
+	}
+	public double getGrandTotal()
+	{
+		return 0;
+	}
+	
+	
+	
 	
 }
