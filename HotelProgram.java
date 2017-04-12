@@ -12,7 +12,9 @@ public class HotelProgram {
 	public static void main(String[] args) {
 		
 		// Creates customer object list
-		CustomerList newList = new CustomerList();
+		CustomerList custList = new CustomerList();
+		Rooms roomsObj = new Rooms();
+		
 		
 		boolean done = false; // done will end the whole program
 		boolean done2 = false; // done2 will end Employee UI or Manager UI
@@ -29,42 +31,12 @@ public class HotelProgram {
 				
 				// Employee UI
 				while (!done2) {
-					System.out.println("R) Reservation C) Check In/Out N) New Customer A) Room Availability B) Bill Q) To Quit");
+					done3 = false;
+					System.out.println("C) Check In/Out N) New Customer A) Room Availability B) Bill Q) To Quit");
 					String action = in.next().toUpperCase();
-					
-					// Reservation UI
-					if (action.equals("R")) {
-						while (!done3) {
-							System.out.println("N) New reservaiton C) Cancel reservation Q) Quit");
-							String action2 = in.next().toUpperCase();
-							
-							// Creating a new reservation option
-							if (action2.equals("N")) {
-								System.out.print("Customer ID: ");
-								// use newRes method from Reservations class
-								
-							}
-							
-							// Canceling a reservation option
-							else if (action2.equals("C")) {
-								System.out.print("Customer ID: ");
-								
-							}
-							
-							// Quit reservation option
-							else if (action2.equals("Q")) {
-								done3 = true;
-							}
-							
-							// Incorrect input
-							else {
-								System.out.println("Sorry, that was incorrect input.");
-							}
-						}
-					}
 						
 					// Checking In/Out UI
-					else if (action.equals("C")) {
+					if (action.equals("C")) {
 						while (!done3) {
 							System.out.println("I) Check In O) Check Out Q) Quit");
 							String action2 = in.next().toUpperCase();
@@ -97,70 +69,60 @@ public class HotelProgram {
 						String fName = in.next();
 						System.out.print("Customer last name: ");
 						String lName = in.next();
-						newList.add(fName, lName);
-						int index = newList.findByLast(lName);
-						System.out.println(fName + " " + lName + " Customer ID is " + newList.getCustomer(index).getID());
+						custList.add(fName, lName);
+						int index = custList.findByLast(lName);
+						System.out.println(fName + " " + lName + " Customer ID is " + custList.getCustomer(index).getID());
 						
 					}
 					
 					// Room Availability UI
 					else if (action.equals("A")) {
 						while (!done3) {
-						
-								   boolean doneRoom = false;
-								   boolean doneRoom2 = false;
-								   boolean doneRoom3 = false;
-								   while(!doneRoom) 
-								   {
-								   Rooms first = new Rooms();
-								   System.out.print("Do you need the room availability? Y/N ");
-								   String response3 = in.next();
-								   if(response3.equals("Y")) {
-									   first.getRooms();
-								   }
-								  
-								  
-								   System.out.println("Do you need to add rooms? Y/N");
-								   
-								       
-								      // System.out.println("Don you need to add rooms? Y/N");
-								       String response2 = in.next();
-								       if(response2.equals("Y")) {
-								       System.out.println("Single Rooms?: ");
-								       first.addSingle(in.nextInt());
-								       System.out.println("Double Rooms?: ");
-								       first.addDouble(in.nextInt());
-								       System.out.println("Triple Rooms?: ");
-								       first.addTriple(in.nextInt());
-								       first.getRooms();
-								       }
-								       
-								           System.out.println("Do you need to Remove Rooms? Y/N?");
-								           
-								           String response5 = in.next();
-								           if(response5.equals("Y"))
-								           {
-								               System.out.println("Single Rooms?: ");
-								               first.removeSingle(in.nextInt());
-								               System.out.println("Double Rooms?: ");
-								               first.removeDouble(in.nextInt());
-								               System.out.println("Triple Room?");
-								               first.removeTriple(in.nextInt());
-								               first.getRooms();
-								           }
-								  //first.getRooms();
-								  doneRoom = true;
-								  doneRoom3 = true;
-								 done3 = true;
-								   }
+							System.out.println("R) Room Availibility A) Add Room R) Remove Room Q) Quit");
+							String action2 = in.next().toUpperCase();
+							
+							// Option to check room availability
+							if (action2.equals("R")) {
+								roomsObj.getRooms();
+								done3 = true;
+							}
+							
+							// Option to add rooms
+							else if (action2.equals("A")) {
+								System.out.println("Single Rooms?: ");
+							    roomsObj.addSingle(in.nextInt());
+							    System.out.println("Double Rooms?: ");
+							    roomsObj.addDouble(in.nextInt());
+							    System.out.println("Triple Rooms?: ");
+							    roomsObj.addTriple(in.nextInt());
+							    roomsObj.getRooms();
+							    done3 = true;
+							}
+							
+							// Option to remove rooms
+							else if (action2.equals("R")) {
+								System.out.println("Single Rooms?: ");
+					            roomsObj.removeSingle(in.nextInt());
+					            System.out.println("Double Rooms?: ");
+					            roomsObj.removeDouble(in.nextInt());
+					            System.out.println("Triple Room?");
+					            roomsObj.removeTriple(in.nextInt());
+					            roomsObj.getRooms();
+					            done3 = true;
+							}
+							
+							// Option to quit Room Availability
+							else if (action2.equals("Q")) {
+								done3 = true;
+							}
+							
+							// Incorrect input
+							else {
+								System.out.println("Sorry, that was incorrect input.");
+							}
 						}
 					}
-								   
-								  
-								
-							
-					
-						
+	
 					// Billing UI
 					else if (action.equals("B")) {
 						while (!done3) {
@@ -206,138 +168,6 @@ public class HotelProgram {
 					else {
 						System.out.println("Incorrect input.");
 					}	
-				}
-			}
-			
-			// Start of MANAGER user interface
-			else if (password.equals("manager")) {
-				System.out.println("Welcome Manager.");
-				
-				// Manager UI
-				while (!done2) {
-					System.out.println("R) Reservation C) Check In/Out N) New Customer A) Room Availability B) Bill Q) To Quit");
-					String action = in.next().toUpperCase();
-					
-					// Reservation UI
-					if (action.equals("R")) {
-						while (!done3) {
-							System.out.println("N) New reservaiton C) Change reservation Q) Quit");
-							String action2 = in.next().toUpperCase();
-							
-							// Creating a new reservation option
-							if (action2.equals("N")) {
-								System.out.print("Customer ID: ");
-								// use newRes method from Reservations class
-							}
-							
-							// Changing a reservation option
-							else if (action2.equals("C")) {
-								System.out.print("Customer ID: ");
-							}
-							
-							// Quit reservation option
-							else if (action2.equals("Q")) {
-								done3 = true;
-							}
-							
-							// Incorrect input
-							else {
-								System.out.println("Sorry, that was incorrect input.");
-							}
-						}
-					}
-						
-					// Checking In/Out UI
-					else if (action.equals("C")) {
-						while (!done3) {
-							System.out.println("I) Check In O) Check Out Q) Quit");
-							String action2 = in.next().toUpperCase();
-							
-							// Option to check in
-							if (action2.equals("I")) {
-								
-							}
-							
-							// Option to check out
-							else if (action2.equals("O")) {
-								
-							}
-							
-							// Option to quit Check In/Out
-							else if (action2.equals("Q")) {
-								done3 = true;
-							}
-							
-							// Incorrect input
-							else {
-								System.out.println("Sorry, that was incorrect input.");
-							}
-						}
-						
-					}
-					
-					// New Customer UI
-					else if (action.equals("N")) {
-						System.out.print("Customer first name: ");
-						String fName = in.next();
-						System.out.print("Customer last name: ");
-						String lName = in.next();
-						newList.add(fName, lName);
-						int index = newList.findByLast(lName);
-						System.out.println(fName + " " + lName + " Customer ID is " + newList.getCustomer(index).getID());
-						
-					}
-					
-					// Room Availability UI
-					else if (action.equals("A")) {
-						while (!done3) {
-						}
-					}
-		
-					// Billing UI
-					else if (action.equals("B")) {
-						while (!done3) {
-							System.out.println("P) Print Bill A) Add Charge R) Remove Charge Q) Quit");
-							String action2 = in.next().toUpperCase();
-							
-							// Prints the bill
-							if (action2.equals("P")) {
-								
-							}
-							
-							// Adds charge to the bill
-							else if (action2.equals("A")) {
-								
-								
-							}
-							
-							// Removes charge from the bill
-							else if (action2.equals("R")) {
-								
-								
-							}
-							
-							// Quit bill option
-							else if (action2.equals("Q")) {
-								done3 = true;
-							}
-							
-							// Incorrect input
-							else {
-								System.out.println("Sorry, that was incorrect input.");
-							}
-						}
-					}
-						
-					// Quit option
-					else if (action.equals("Q")) {
-						done2 = true;
-					}
-						
-					// Incorrect input
-					else {
-						System.out.println("Incorrect input.");
-					}
 				}
 			}
 			
