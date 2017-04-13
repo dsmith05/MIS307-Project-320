@@ -15,6 +15,7 @@ public class HotelProgram {
 		CustomerList custList = new CustomerList();
 		RoomsList roomList = new RoomsList();
 		IncidentalChargesList chargeList = new IncidentalChargesList();
+		DailyReports reports = new DailyReports();
 		
 		// Creates the Room objects
 		// Single Rooms
@@ -54,7 +55,7 @@ public class HotelProgram {
 				// Employee UI
 				while (!done2) {
 					done3 = false;
-					System.out.println("C) Check In/Out N) New Customer A) Room Availability B) Bill Q) To Quit");
+					System.out.println("C) Check In/Out N) New Customer A) Room Availability B) Bill D) Daily Reports Q) To Quit");
 					String action = in.next().toUpperCase();
 						
 					// Checking In/Out UI
@@ -173,6 +174,37 @@ public class HotelProgram {
 							}
 							
 							// Quit bill option
+							else if (action2.equals("Q")) {
+								done3 = true;
+							}
+							
+							// Incorrect input
+							else {
+								System.out.println("Sorry, that was incorrect input.");
+							}
+						}
+						
+					}
+					
+					// Daily Reports UI
+					else if (action.equals("D")) {
+						while (!done3) {
+							System.out.println("R) Daily Revenue O) Occupancy Rate Q) Quit");
+							String action2 = in.next().toUpperCase();
+							
+							// Daily Revenue Option
+							if (action2.equals("R")) {
+								
+							}
+							
+							// Occupancy Rate option
+							else if (action2.equals("O")) {
+								double rate = reports.OccupancyRate(roomList);
+								System.out.printf("%.0f%% of rooms are occupied.\n", rate);
+								done3 = true;
+							}
+							
+							// Option to quit
 							else if (action2.equals("Q")) {
 								done3 = true;
 							}

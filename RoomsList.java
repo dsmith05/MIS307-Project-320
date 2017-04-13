@@ -61,6 +61,16 @@ public class RoomsList {
 		
 	}
 	
+	public int countOccupied() {
+		int count = 0;
+		for (int i = 0; i < counter; i++) {
+			if (!getRoom(i).getAvailable()) {
+				count++;
+			}
+		}
+		return count;
+	}
+	
 	/**
 	 * Checks and prints all available rooms
 	 */
