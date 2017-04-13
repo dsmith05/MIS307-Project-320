@@ -33,6 +33,20 @@ public class IncidentalChargesList {
 		
 	}
 	
+	/**
+	 * Gets a charge object by ArrayList index number
+	 * @param index index location of object
+	 * @return the object at specified index location
+	 */
+	public IncidentalCharges getChargeByIndex(int index) {
+		return charges.get(index);
+	}
+	
+	/**
+	 * Gets the index location of specified charge
+	 * @param type the type of charge
+	 * @return index location of charge type
+	 */
 	public int findByType(String type) {
 		int match = -1;
 		for (int i = 0; i < counter && match == -1; i++) {

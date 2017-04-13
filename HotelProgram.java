@@ -16,6 +16,7 @@ public class HotelProgram {
 		RoomsList roomList = new RoomsList();
 		IncidentalChargesList chargeList = new IncidentalChargesList();
 		DailyReports reports = new DailyReports();
+		BillingExpense bill = new BillingExpense();
 		
 		// Creates the Room objects
 		// Single Rooms
@@ -153,23 +154,68 @@ public class HotelProgram {
 					// Billing UI
 					else if (action.equals("B")) {
 						while (!done3) {
-							System.out.println("P) Print Bill A) Add Charge R) Remove Charge Q) Quit");
+							System.out.println("P) Print Bill Q) Quit");
 							String action2 = in.next().toUpperCase();
 							
 							// Prints the bill
 							if (action2.equals("P")) {
+								boolean done4 = false;
+								// Ask for customer ID
+								System.out.print("Customer ID: ");
+								int ID = in.nextInt();
 								
-							}
-							
-							// Adds charge to the bill
-							else if (action2.equals("A")) {
+								// Ask for numbe of nights stayed
+								System.out.print("Number of nights stayed: ");
+								int nights = in.nextInt();
 								
+								// Gets the room number from customer ID
+								int roomNum = custList.getCustomerByID(ID).getRoomNum();
+								// Gets the price of room from the room number
+								double price = roomList.getRoomByNumber(roomNum).getPrice();
 								
-							}
-							
-							// Removes charge from the bill
-							else if (action2.equals("R")) {
+								// Adds the room expense to bill
+								bill.addRoomPrice(price, nights);
 								
+								// Adding incidental charges to bill
+								while (!done4) {
+									System.out.println("A) Add Incidental Charge Q) No charges to enter");
+									String action3 = in.nextLine().toUpperCase();
+									
+									// Option to add incidental charges
+									if (action3.equals("A")) {
+										System.out.print("Name of charge: ");
+										String charge = in.next();
+										int index = chargeList.findByType(charge);
+										in.nextLine();
+										if (index >= 0) {
+											bill.addIncidentalcharge(chargeList.getChargeByIndex(index).getPrice());
+											
+										}
+										
+										// Charge name entered does not exist
+										else {
+											System.out.println("Sorry, that charge doesn't exist.");
+										}
+										
+									}
+									
+									// Option to quit adding incidental charges
+									else if (action3.equals("Q")) {
+										done4 = true;
+									}
+									
+									// Incorrect input
+									else {
+										System.out.println("Sorry, that was incorrect input.");
+									}
+								}
+								double billTotal = bill.getGrandTotal();
+								// Add billTotal to Revenue
+								reports.addToRevenue(billTotal);
+								System.out.printf("Room Charge          $%3.2f\r\n", bill.getRoomTotal());
+								System.out.printf("Incidental Charges   $%3.2f\r\n", bill.getIncidentalChargeTotal());
+								System.out.println("------------------------------");
+								System.out.printf("Total                $%3.2f\r\n", billTotal);
 								
 							}
 							

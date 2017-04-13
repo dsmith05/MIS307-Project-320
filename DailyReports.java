@@ -8,8 +8,11 @@ import java.util.Scanner;
 
 public class DailyReports{
 	
-	public static double revenue;
-
+	private static double revenue = 0;
+	
+	public void addToRevenue(double price) {
+		revenue = revenue + price;
+	}
 
 	/**Scans the ArrayList for the revenue for the day
 	 *adds the cost of each unavailable room.
