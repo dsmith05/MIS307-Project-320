@@ -1,11 +1,3 @@
-/**
- * 
- * @author Andrew Strand
- *Creation date: 4/5/17
- *
- */
-import java.util.Scanner;
-
 public class DailyReports{
 
 
@@ -21,19 +13,28 @@ int i = in.next()
 list.get();
 return;
 }
+}
 
 /**calculates the occupancy rate for the day
  *takes the number of unavailable room and divides it by the total number of rooms.
 */ 
 public Double OccupancyRate(){
 
+while(in.hasNext()){
+int i = in.next()
+list.get();
 return;
 }
 
+}
 /**Gets and prints a list of the rooms with the status of needs cleaning.
 */
 public getUncleanRoomList(){
 
-returns;
+while(in.hasNext()){
+int i = in.next()
+list.get();
+return;
+}
 }
 }
