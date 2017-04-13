@@ -7,3 +7,4 @@ Main changes:
 - HotelProgram to accomadate added simplicity and changes
 - IncidentalCharges and IncidentalChargesList
   to add more functionality for the proposed billing class
+- DailyReports is able to compute occupancy rate
