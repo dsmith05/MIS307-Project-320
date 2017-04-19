@@ -5,21 +5,29 @@ import java.util.ArrayList;
  */
 public class IncidentalCharges {
 	
-	private String chargeName;
-	private double chargePrice;
+	private String type;
+	private double price;
 	
-	public IncidentalCharges(String name, double price)
-	{
-		chargeName = name;
-		chargePrice = price;	
+	public IncidentalCharges(String t, double p) {
+		type = t;
+		price = p;
+		
 	}
-	public String getchargeName()
-	{
-		return "";
+	
+	/**
+	 * Gets the type of incidental charge
+	 * @return String type of charge
+	 */
+	public String getType() {
+		return type;
 	}
-	public double getchargePrice()
-	{
-		return 0;
+	
+	/**
+	 * Gets the price of incidental charge
+	 * @return double price of charge
+	 */
+	public double getPrice() {
+		return price;
 	}
 	
 }

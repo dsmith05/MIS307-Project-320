@@ -1,67 +1,103 @@
+import java.util.ArrayList;
 
-import java.io.IOException;
-import java.util.Scanner;
+public class RoomsList {
+	
+	private ArrayList <Rooms> roomsList;
+	private int counter;
+	
+	public RoomsList() {
+		
+		roomsList = new ArrayList<Rooms>();
+		counter = 0;
+		
+	}
+	
+	/**
+	 * Adds a new room object to the array list
+	 * @param roomNum Room number of new room
+	 * @param type Type of new room
+	 * @param price Price of new room
+	 */
+	public void addRoom(int roomNum, String type, double price) {
+		Rooms room = new Rooms(roomNum, type, price);
+		roomsList.add(room);
+		counter++;
+		
+	}
+	
+	/**
+	 * Gets a room object at the specified index
+	 * @param index index in ArrayList
+	 * @return Rooms object at index
+	 */
+	public Rooms getRoom(int index) {
+		return roomsList.get(index);
+	}
+	
+	/**
+	 * Gets a Rooms object by specified room number
+	 * @param roomNum the room number for the object
+	 * @return the Rooms object with specified room number
+	 */
+	public Rooms getRoomByNumber(int roomNum) {
+		int index = findByRoomNumber(roomNum);
+		return roomsList.get(index);
+		
+	}
+	
+	/**
+	 * Finds the index location of a room object by room number
+	 * @param roomNum Desired room number
+	 * @return int index location of object
+	 */
+	public int findByRoomNumber(int roomNum) {
+		int match = -1;
+		for (int i = 0; i < counter && match == -1; i++) {
+			if (roomNum == roomsList.get(i).getRoomNumber()) {
+				match = i;
+			}
+		}
+		return match;
+		
+	}
+	
+	public int countOccupied() {
+		int count = 0;
+		for (int i = 0; i < counter; i++) {
+			if (!getRoom(i).getAvailable()) {
+				count++;
+			}
+		}
+		return count;
+	}
+	
+	/**
+	 * Checks and prints all available rooms
+	 */
+	public void availableAll() {
+		for (int i = 0; i < counter; i++) {
+			if (getRoom(i).getAvailable()) {
+				System.out.println(getRoom(i).getRoomNumber());
+			}
+		}
+	}
+	
+	/**
+	 * Checks and prints the available rooms by specified type
+	 * @param type the type of room to be searched
+	 */
+	public void availableByType(String type) {
+		for (int i = 0; i < counter; i++) {
+			// Checks to match the type of room
+			if (getRoom(i).getType().equals(type)) {
+				// Checks if room is available
+				if (getRoom(i).getAvailable()) {
+					System.out.println(getRoom(i).getRoomNumber());
+				}
+			}
+		}
+		
+		
+	}
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- *
- * @abbyFridgen User
- */
-
-public class RoomsList
-{
-   public static void main(String[] args) 
-   {
-   Scanner in = new Scanner(System.in);
-   
-   boolean done = false;
-   boolean done2 = false;
-   while(!done) 
-   {
-   Rooms first = new Rooms();
-   System.out.println("Do you need to add rooms? Y/N");
-   while(!done2){
-       
-      // System.out.println("Don you need to add rooms? Y/N");
-       String response2 = in.next();
-       if(response2.equals("Y")) {
-       System.out.println("Single Rooms?: ");
-       first.addSingle(in.nextInt());
-       System.out.println("Double Rooms?: ");
-       first.addDouble(in.nextInt());
-       System.out.println("Triple Rooms?: ");
-       first.addTriple(in.nextInt());
-       System.out.println("Do you need to add more rooms?");
-       }
-       else {
-           System.out.println("Do you need to Remove Rooms? Y/N?");
-           String response = in.next();
-           if(response.equals("Y"))
-           {
-               System.out.println("Single Rooms?: ");
-               first.removeSingle(in.nextInt());
-               System.out.println("Double Rooms?: ");
-               first.removeDouble(in.nextInt());
-               System.out.println("Triple Room?");
-               first.removeTriple(in.nextInt());
-               done2 = true;
-           }
-           else 
-           {
-               done2 = true;
-           }
-        
-        
-   }
-}
-       System.out.println("Total for Rooms is: ");
-       first.getRooms();
-       done = true;
-            }
-          }
 }

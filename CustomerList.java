@@ -31,6 +31,17 @@ public class CustomerList {
 	}
 	
 	/**
+	 * Gets a Customer object by ID
+	 * @param ID the ID of the Customer
+	 * @return Customer object with specified ID
+	 */
+	public Customer getCustomerByID(int ID) {
+		int index = ID - 1;
+		return mainList.get(index);
+		
+	}
+	
+	/**
 	 * Gets the desired Customer object
 	 * @param index the desired Customer object's index in the ArrayList
 	 * @return the Customer object at location index in ArrayList

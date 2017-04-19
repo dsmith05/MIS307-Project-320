@@ -4,29 +4,67 @@
 
 public class BillingExpense {
 	
+	private double roomTotal;
 	private double chargeTotal;
 	private double grandTotal;
 	
 	
 	public BillingExpense() 
 	{
+		roomTotal = 0;
+		chargeTotal = 0;
+		grandTotal = 0;
 		
 	}
-	public double getRoomPrice()
+	
+	/**
+	 * Adds the price of the room to total
+	 * @param price price of room per night
+	 * @param nights number of nights stayed
+	 */
+	public void addRoomPrice(double price, int nights)
 	{
-		return 0;
+		roomTotal = roomTotal + (price * nights);
+		grandTotal = grandTotal + (price * nights);
 	}
-	public double getIncidentalcharges()
+	
+	/**
+	 * Adds an incidental charge to the totals
+	 * @param charge price of incidental charge
+	 */
+	public void addIncidentalcharge(double charge)
 	{
-		return 0;
+		chargeTotal = chargeTotal + charge;
+		grandTotal = grandTotal + charge;
 	}
+	
+	public void clearBill() {
+		roomTotal = 0;
+		chargeTotal = 0;
+		grandTotal = 0;
+		
+	}
+	
+	public double getRoomTotal() {
+		return roomTotal;
+	}
+	
+	/**
+	 * Gets the total of all incidental charges
+	 * @return total of all incidental charges
+	 */
 	public double getIncidentalChargeTotal()
 	{
-		return 0;
+		return chargeTotal;
 	}
+	
+	/**
+	 * Gets the grand total of the stay
+	 * @return grand total of all expenses to customer
+	 */
 	public double getGrandTotal()
 	{
-		return 0;
+		return grandTotal;
 	}
 	
 	
